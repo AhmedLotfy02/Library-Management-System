@@ -2,7 +2,7 @@ package com.LibraryManagementSystem.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -19,15 +19,20 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
+    @NotNull(message = "Title is required")
+    @Size(min = 1, max = 100, message = "Title must be between 1 and 100 characters")
     private String title;
 
-    @NotNull
+    @NotNull(message = "Author is required")
+    @Size(min = 1, max = 100, message = "Author must be between 1 and 100 characters")
     private String author;
 
+    @Min(value = 1450, message = "Publication year should not be before 1450")
+    @Max(value = 2100, message = "Publication year should not be after 2100")
     private int publicationYear;
 
-    @NotNull
+    @NotNull(message = "ISBN is required")
+    @Pattern(regexp = "^(97(8|9))?\\d{9}(\\d|X)$", message = "ISBN must be valid")
     private String isbn;
 
     @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)

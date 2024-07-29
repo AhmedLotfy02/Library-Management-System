@@ -30,7 +30,6 @@ public class BorrowingRecord {
     @JsonBackReference
 
     private Patron patron;
-
     private LocalDate borrowDate;
 
     private LocalDate returnDate;
