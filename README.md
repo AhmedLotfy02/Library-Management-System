@@ -60,7 +60,16 @@
 <li><a href="#Entity-Relationship-Diagram">Database Schema</a></li>
 <li><a href="#caching">Caching</a></li>
 <li><a href="#aop-aspect-oriented-programming">AOP (Aspect-Oriented Programming)</a></li>
-<li><a href="#running-tests">Running Tests</a></li>
+<li><a href="#running-tests">Running Tests</a>
+ <ul>
+            <li><a href="#controller-tests">Controller Tests</a></li>
+            <li><a href="#service-tests">Service Tests</a></li>
+              <li><a href="#security-tests">Security Tests</a></li>
+              <li><a href="#coverage-report">Coverage Report</a></li>
+
+
+</ul>
+</li>
 <li><a href="#contribution">Contribution</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
@@ -405,12 +414,42 @@ public Object logAround(ProceedingJoinPoint joinPoint) throws Throwable {
 }
 </code></pre>
 <h2 id="running-tests">Running Tests</h2>
-<p>
-The project includes unit and integration tests. You can run them using Maven:
-</p>
+<p>The project includes unit tests for the controllers, services, and utilities. These tests ensure that the application logic works correctly.</p>
+
+<h3 id="controller-tests">Controller Tests</h3>
+<p>These tests validate the functionality of the API endpoints:</p>
+<ul>
+    <li><strong>shouldReturnBookById</strong>: Tests the retrieval of a book by its ID.</li>
+    <li><strong>shouldReturnAllBooks</strong>: Tests the retrieval of all books.</li>
+    <li><strong>shouldAddBook</strong>: Tests the addition of a new book.</li>
+    <li><strong>shouldUpdateBook</strong>: Tests the update of an existing book.</li>
+    <li><strong>shouldDeleteBook</strong>: Tests the deletion of a book by its ID.</li>
+</ul>
+
+<h3 id="service-tests">Service Tests</h3>
+<p>These tests validate the business logic of the services:</p>
+<ul>
+    <li><strong>getAllBooks</strong>: Tests the retrieval of all books.</li>
+    <li><strong>getBookById</strong>: Tests the retrieval of a book by its ID.</li>
+    <li><strong>addBook</strong>: Tests the addition of a new book.</li>
+    <li><strong>updateBook</strong>: Tests the update of an existing book.</li>
+    <li><strong>deleteBook</strong>: Tests the deletion of a book by its ID.</li>
+</ul>
+
+<h3 id="security-tests">JWT Token Utility Tests</h3>
+<p>These tests validate the functionality of the JWT token utility:</p>
+<ul>
+    <li><strong>testGenerateToken</strong>: Tests the generation of a JWT token.</li>
+    <li><strong>testValidateToken</strong>: Tests the validation of a JWT token.</li>
+    <li><strong>testGetUsernameFromToken</strong>: Tests the extraction of the username from a JWT token.</li>
+    <li><strong>testIsTokenExpired</strong>: Tests the expiration check of a JWT token.</li>
+</ul>
+<h3>Run this command </h3>
 <pre><code>mvn test
 </code></pre>
-<p>Ensure that your test configuration (e.g., in-memory database, mock services) is correctly set up in the test resources.</p>
+<h2 id="coverage-report">Coverage Report</h2>
+<h4>Class: 100% , Method: 81% , Lines: 79%</h4>
+<a href="https://ibb.co/ZJjYwpJ"><img src="https://i.ibb.co/cvBCpSv/coverage.png" alt="coverage" border="0"></a>
 
 <h2 id="contribution">Contribution</h2>
 <p>
